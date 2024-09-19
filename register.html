@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Student Result Management System</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/validation.js" defer></script> <!-- Link to the JavaScript file -->
+</head>
+<body>
+    <header id="header">
+        <h1>Student Result Management System</h1>
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section id="register" class="section">
+            <h2>Register as a New Student</h2>
+            <form action="/submit_registration" method="post">
+                <label for="reg-no">Registration Number:</label>
+                <input type="text" id="reg-no" name="reg-no" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                <label for="year">Year of Study:</label>
+                <select id="year" name="year" required>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+
+                <label for="gender">Gender:</label>
+                <div id="gender">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" name="gender" value="other" required> Other</label>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2024 Student Result Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
