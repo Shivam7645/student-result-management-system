@@ -19,15 +19,16 @@
             <li><a href="settings.html">Settings</a></li>
             <li><a href="register.html">Register</a></li>
             <li><a href="login.html">Login</a></li>
+            <li><a href="update_marks.html">Update Marks</a></li>
         </ul>
     </nav>
 
     <main id="main-content">
         <section id="register" class="section">
             <h2>Register as a New Student</h2>
-            <form action="/submit_registration" method="post">
-                <label for="reg-no">Registration Number:</label>
-                <input type="text" id="reg-no" name="reg-no" required>
+            <form action="http://localhost:9000" method="post">
+                <label for="regno">Registration Number:</label>
+                <input type="text" id="regno" name="regno" required>
 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -38,8 +39,8 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label for="confirmpassword">Confirm Password:</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" required>
 
                 <label for="year">Year of Study:</label>
                 <select id="year" name="year" required>
