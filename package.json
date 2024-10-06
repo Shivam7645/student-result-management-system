@@ -1,0 +1,13 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.x.x",
+    "express": "^4.x.x",
+    "pug": "^3.0.3"
+  }
+}

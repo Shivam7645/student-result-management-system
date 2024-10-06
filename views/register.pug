@@ -1,0 +1,61 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Register - Student Result Management System
+    link(rel="stylesheet" href="./assets/css/styles.css")
+    script(src="./assets/js/validation.js" defer)
+
+  body
+    header#header
+      h1 Student Result Management System
+
+    nav#nav
+      ul
+        li: a(href="index.html") Home
+        li: a(href="results.html") Results
+        li: a(href="settings.html") Settings
+        li: a(href="register.html") Register
+        li: a(href="login.html") Login
+        li: a(href="update_marks.html") Update Marks
+
+    main#main-content
+      section#register.section
+        h2 Register as a New Student
+        form(action="http://localhost:9000" method="post")
+          label(for="regno") Registration Number:
+          input(type="text" id="regno" name="regno" required)
+
+          label(for="name") Name:
+          input(type="text" id="name" name="name" required)
+
+          label(for="phone") Phone Number:
+          input(type="tel" id="phone" name="phone" required)
+
+          label(for="password") Password:
+          input(type="password" id="password" name="password" required)
+
+          label(for="confirmpassword") Confirm Password:
+          input(type="password" id="confirmpassword" name="confirmpassword" required)
+
+          label(for="year") Year of Study:
+          select(id="year" name="year" required)
+            option(value="1") 1st Year
+            option(value="2") 2nd Year
+            option(value="3") 3rd Year
+            option(value="4") 4th Year
+
+          label(for="gender") Gender:
+          #gender
+            label
+              input(type="radio" name="gender" value="male" required) Male
+            label
+              input(type="radio" name="gender" value="female" required) Female
+            label
+              input(type="radio" name="gender" value="other" required) Other
+
+          button(type="submit") Register
+
+    footer#footer
+      p &copy; 2024 Student Result Management System. All rights reserved.

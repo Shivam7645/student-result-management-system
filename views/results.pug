@@ -1,0 +1,74 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Results - Student Result Management System
+    link(rel="stylesheet" href="./assets/css/styles.css")
+  
+  body
+    header#header
+      h1 Student Result Management System
+
+    nav#nav
+      ul
+        li: a(href="index.html") Home
+        li: a(href="results.html") Results
+        li: a(href="settings.html") Settings
+        li: a(href="register.html") Register
+        li: a(href="login.html") Login
+        li: a(href="update_marks.html") Update Marks
+
+    main#main-content
+      section#results.section
+        h2 Student Results
+        .result-table
+          table
+            thead
+              tr
+                th Student ID
+                th Name
+                th Subject
+                th Marks
+                th Status
+            tbody
+              tr
+                td 4675
+                td Manish
+                td Mathematics
+                td 85
+                td Pass
+              tr
+                td 4672
+                td Shivam
+                td History
+                td 90
+                td Pass
+              tr
+                td 4672
+                td Shivam
+                td Geo
+                td 90
+                td Pass
+              tr
+                td 4672
+                td Shivam
+                td phy
+                td 90
+                td Pass
+              tr
+                td 4672
+                td Shivam
+                td java
+                td 90
+                td Pass
+              tr
+                td 4672
+                td Shivam
+                td python
+                td 90
+                td Pass
+              // Add more student rows as needed
+
+    footer#footer
+      p &copy; 2024 Student Result Management System. All rights reserved.

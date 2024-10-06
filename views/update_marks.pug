@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Update Marks - Student Result Management System
+    link(rel="stylesheet" href="./assets/css/styles.css")
+
+  body
+    header#header
+      h1 Student Result Management System
+
+    nav#nav
+      ul
+        li: a(href="index.html") Home
+        li: a(href="results.html") Results
+        li: a(href="settings.html") Settings
+        li: a(href="register.html") Register
+        li: a(href="login.html") Login
+        li: a(href="update_marks.html") Update Marks
+
+    main#main-content
+      section#update-marks.section
+        h2 Update Student Marks
+        form#update-marks-form(action="update_results.php" method="POST")
+          label(for="student-id") Student ID:
+          input#student-id(type="text" name="student-id" placeholder="Enter student ID" required)
+
+          label(for="subject") Subject:
+          select#subject(name="subject")
+            option(value="math") Math
+            option(value="science") Science
+            option(value="english") English
+            option(value="history") History
+
+          label(for="marks") Marks:
+          input#marks(type="number" name="marks" min="0" max="100" placeholder="Enter marks" required)
+
+          button(type="submit") Update Marks
+
+    footer#footer
+      p &copy; 2024 Student Result Management System. All rights reserved.

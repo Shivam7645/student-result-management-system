@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Home - Student Result Management System
+    link(rel="stylesheet" href="./assets/css/styles.css")
+  body
+    header#header
+      h1 Student Result Management System
+    nav#nav
+      ul
+        li: a(href="index.html") Home
+        li: a(href="results.html") Results
+        li: a(href="settings.html") Settings
+        li: a(href="register.html") Register
+        li: a(href="login.html") Login
+        li: a(href="update_marks.html") Update Marks
+
+    main#main-content
+      section#home.section
+        h2 Welcome to the Student Result Management System
+        p Our Student Result Management System provides an efficient way to manage and view student results. With an easy-to-use interface, you can quickly access your results, update personal information, and view your academic performance.
+        
+        h3 Features:
+        ul
+          li Real-time result updates
+          li Comprehensive student profiles
+          li Easy navigation and user-friendly interface
+          li Secure login and registration
+
+        h3 Get Started:
+        p 
+          | To get started, you can 
+          a(href="register.html") register here 
+          | if you are a new student. If you already have an account, 
+          a(href="login.html") log in 
+          | to access your results and update your profile.
+
+        // New Card Section Added
+        .card-container
+          .card
+            h2 Real-time Results
+            p Stay up-to-date with your academic performance and access results in real time through our system.
+            a(href="results.html") Learn More
+          .card
+            h2 Comprehensive Profiles
+            p Manage your personal information, view your academic history, and track progress easily.
+            a(href="settings.html") Learn More
+          .card
+            h2 Secure Access
+            p Your data is protected with secure login options and strong encryption for peace of mind.
+            a(href="login.html") Learn More
+        // End of Card Section
+
+    footer#footer
+      p &copy; 2024 Student Result Management System. All rights reserved.
