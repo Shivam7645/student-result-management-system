@@ -1,21 +1,21 @@
-doctype html
+
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Home - Student Result Management System
-    link(rel="stylesheet" href="./assets/css/styles.css")
+    link(rel="stylesheet" href="/css/styles.css")
   body
     header#header
       h1 Student Result Management System
     nav#nav
       ul
-        li: a(href="index.html") Home
-        li: a(href="results.html") Results
-        li: a(href="settings.html") Settings
-        li: a(href="register.html") Register
-        li: a(href="login.html") Login
-        li: a(href="update_marks.html") Update Marks
+        li: a(href="/index") Home
+        li: a(href="/results") Results
+        li: a(href="/settings") Settings
+        li: a(href="/register") Register
+        li: a(href="/login") Login
+        li: a(href="/update_marks") Update Marks
 
     main#main-content
       section#home.section
@@ -32,9 +32,9 @@ html(lang="en")
         h3 Get Started:
         p 
           | To get started, you can 
-          a(href="register.html") register here 
+          a(href="/register") register here 
           | if you are a new student. If you already have an account, 
-          a(href="login.html") log in 
+          a(href="/login") log in 
           | to access your results and update your profile.
 
         // New Card Section Added
@@ -42,15 +42,15 @@ html(lang="en")
           .card
             h2 Real-time Results
             p Stay up-to-date with your academic performance and access results in real time through our system.
-            a(href="results.html") Learn More
+            a(href="/results") Learn More
           .card
             h2 Comprehensive Profiles
             p Manage your personal information, view your academic history, and track progress easily.
-            a(href="settings.html") Learn More
+            a(href="/settings") Learn More
           .card
             h2 Secure Access
             p Your data is protected with secure login options and strong encryption for peace of mind.
-            a(href="login.html") Learn More
+            a(href="/login") Learn More
         // End of Card Section
 
     footer#footer

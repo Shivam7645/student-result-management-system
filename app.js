@@ -17,37 +17,59 @@ app.set('views', path.join(__dirname, 'views')); // Set the views directory
 app.set('view engine', 'pug'); // Set Pug as the templating engine
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
     res.render('index'); // Render the index.pug file
 });
 
-app.get('/login', (req, res) => {
+app.get('/index', (_req, res) => {
+    res.render('index'); // Render the index.pug file
+});
+
+app.get('/login', (_req, res) => {
     res.render('login'); // Render the login.pug file
 });
 
-app.get('/register', (req, res) => {
+app.get('/register', (_req, res) => {
     res.render('register'); // Render the register.pug file
 });
 
-app.get('/results', (req, res) => {
-    res.render('result'); // Render the result.pug file
+app.get('/results', (_req, res) => {
+    res.render('results'); // Render the results.pug file
 });
 
-app.get('/settings', (req, res) => {
+app.get('/settings', (_req, res) => {
     res.render('settings'); // Render the settings.pug file
 });
 
-app.get('/update_marks', (req, res) => {
+app.get('/update_marks', (_req, res) => {
     res.render('update_marks'); // Render the update_marks.pug file
 });
 
-// Login submission route (you can expand this with actual login logic)
+// Login submission route
 app.post('/submit_login', (req, res) => {
     const { username, password } = req.body;
     // Implement your login logic here (authentication, validation, etc.)
     console.log(`Username: ${username}, Password: ${password}`);
     // Redirect to home after login (you can change this based on authentication result)
-    res.redirect('/'); 
+    res.redirect('/');
+});
+
+// Registration submission route
+app.post('/submit_register', (req, res) => {
+    const { regno, name, phone, password, confirmpassword, year, gender } = req.body;
+    // Implement your registration logic here (validation, storing data, etc.)
+    console.log(`Registration Details - Reg No: ${regno}, Name: ${name}, Phone: ${phone}, Year: ${year}, Gender: ${gender}`);
+    // Check if passwords match
+    if (password !== confirmpassword) {
+        return res.status(400).send('Passwords do not match');
+    }
+    // Redirect to the login page after successful registration (change as needed)
+    res.redirect('/login');
+});
+
+// 404 error handler for unhandled routes
+app.use((_req, res) => {
+    res.status(404).render('404', { message: 'Page not found' }); // Render a custom 404 page (if you create 404.pug)
 });
 
 // Start the server

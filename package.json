@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node app.js"
   },
+  "scripts": {
+  "dev": "node app.js"
+},
   "dependencies": {
     "body-parser": "^1.x.x",
     "express": "^4.x.x",
