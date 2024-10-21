@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "dev": "node app.js"
   },
-  "scripts": {
-  "dev": "node app.js"
-},
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.x.x",
     "express": "^4.x.x",
     "pug": "^3.0.3"

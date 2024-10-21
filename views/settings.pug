@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Settings - Student Result Management System
     link(rel="stylesheet" href="/css/styles.css")
+    script(src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous")
 
   body
     header#header
@@ -19,11 +20,50 @@ html(lang="en")
         li: a(href="/login") Login
         li: a(href="/update_marks") Update Marks
 
-
     main#main-content
       section#settings.section
         h2 Settings
         p Configure system settings here.
 
+        // Profile Settings
+        section#profile-settings
+          h3 Profile Settings
+          form(action="/update_profile" method="post")
+            label(for="name") Name:
+            input(type="text" id="name" name="name" placeholder="Update your name" required)
+
+            label(for="password") Password:
+            input(type="password" id="password" name="password" placeholder="New password" required)
+
+            label(for="confirmpassword") Confirm Password:
+            input(type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm new password" required)
+
+            button(type="submit" class="btn") Update Profile
+
+        // Notification Settings
+        section#notification-settings
+          h3 Notification Settings
+          form(action="/update_notifications" method="post")
+            label(for="email_notifications") Email Notifications:
+            input(type="checkbox" id="email_notifications" name="email_notifications")
+
+            label(for="sms_notifications") SMS Notifications:
+            input(type="checkbox" id="sms_notifications" name="sms_notifications")
+
+            button(type="submit" class="btn") Update Notifications
+
+        // Theme Settings
+        section#theme-settings
+          h3 Theme Settings
+          p Choose a theme:
+          button(type="button" class="btn theme-btn" onclick="setTheme('light')") Light Mode
+          button(type="button" class="btn theme-btn" onclick="setTheme('dark')") Dark Mode
+
     footer#footer
       p &copy; 2024 Student Result Management System. All rights reserved.
+
+  // Theme switching script
+  script.
+    function setTheme(theme) {
+      document.body.className = theme; // Simple theme switcher by changing the class on the body element
+    }

@@ -1,6 +1,7 @@
-const http = require('http');
-const querystring = require('querystring');
+const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/studentdb', {
@@ -17,56 +18,55 @@ const studentSchema = new mongoose.Schema({
     phone: String,
     password: String,
     year: Number,
-    gender: String
+    // gender: String
 });
 
-// Create a model based on the schema
-const Student = mongoose.model('Student', studentSchema);
+// Create the model for the 'students' collection
+const Student = mongoose.model('students', studentSchema);
 
-const server = http.createServer((req, res) => {
-    if (req.method === 'POST') {
-        let body = '';
+const app = express();
 
-        req.on('data', chunk => {
-            body += chunk.toString();
-        });
+// Middleware for parsing form data
+app.use(bodyParser.urlencoded({ extended: false }));
 
-        req.on('end', () => {
-            const parsedData = querystring.parse(body);
-            const { regno, name, phone, password, year, gender } = parsedData;
+// Set Pug as the view engine
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
-            // Create a new student instance
-            const student = new Student({
-                regno,
-                name,
-                phone,
-                password,
-                year: parseInt(year),
-                gender
-            });
+// Serve static files like CSS, JS, etc.
+app.use(express.static(path.join(__dirname, 'assets')));
 
-            // Save the student data to MongoDB
-            student.save()
-                .then(() => {
-                    console.log('Data inserted successfully');
-                    res.writeHead(200, { 'Content-Type': 'text/html' });
-                    res.write('<center>Data has been successfully saved to the database.</center>');
-                    res.end();
-                })
-                .catch(err => {
-                    console.error('Error saving data:', err);
-                    res.writeHead(500, { 'Content-Type': 'text/html' });
-                    res.write('<center>Error saving data. Please try again.</center>');
-                    res.end();
-                });
-        });
-    } else {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.write('<center>404 - Not Found</center>');
-        res.end();
-    }
+// Route to serve the registration form
+app.get('/register', (req, res) => {
+    res.render('register');
 });
 
-server.listen(9000, () => {
-    console.log("Server is running @ http://localhost:9000");
+// Route to handle form submission
+app.post('/submit_register', (req, res) => {
+    const { regno, name, phone, password, year } = req.body;
+
+    // Create a new student instance
+    const student = new Student({
+        regno,
+        name,
+        phone,
+        password,
+        year: parseInt(year),
+        // gender
+    });
+
+    // Save the student data to MongoDB
+    student.save()
+        .then(() => {
+            console.log('Data inserted successfully');
+            res.send('<center>Data has been successfully saved to the database.</center>');
+        })
+        .catch(err => {
+            console.error('Error saving data:', err);
+            res.status(500).send('<center>Error saving data. Please try again.</center>');
+        });
+});
+
+app.listen(9000, () => {
+    console.log('Server is running on http://localhost:9000');
 });
